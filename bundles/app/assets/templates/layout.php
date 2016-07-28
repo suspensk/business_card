@@ -20,7 +20,7 @@
     <![endif]-->
     <link rel="stylesheet" href="/bundles/app/css/main.css">
 
-    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/bundles/app/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -211,7 +211,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6">
                 <div class="service-wrapper">
-                    <img src="img/service-icon/diamond.png" alt="Service 1">
+                    <img src="/bundles/app/img/service-icon/diamond.png" alt="Service 1">
                     <h3>Aliquam in adipiscing</h3>
                     <p>Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum</p>
                     <a href="#" class="btn">Read more</a>
@@ -219,7 +219,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="service-wrapper">
-                    <img src="img/service-icon/ruler.png" alt="Service 2">
+                    <img src="/bundles/app/img/service-icon/ruler.png" alt="Service 2">
                     <h3>Curabitur mollis</h3>
                     <p>Suspendisse eget libero mi. Fusce ligula orci, vulputate nec elit ultrices, ornare faucibus orci. Aenean lectus sapien, vehicula</p>
                     <a href="#" class="btn">Read more</a>
@@ -227,7 +227,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="service-wrapper">
-                    <img src="img/service-icon/box.png" alt="Service 3">
+                    <img src="/bundles/app/img/service-icon/box.png" alt="Service 3">
                     <h3>Vivamus mattis</h3>
                     <p>Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque</p>
                     <a href="#" class="btn">Read more</a>
@@ -261,7 +261,7 @@
             <div class="testimonial col-md-4 col-sm-6">
                 <!-- Author Photo -->
                 <div class="author-photo">
-                    <img src="img/user1.jpg" alt="Author 1">
+                    <img src="/bundles/app/img/user1.jpg" alt="Author 1">
                 </div>
                 <div class="testimonial-bubble">
                     <blockquote>
@@ -280,7 +280,7 @@
             <!-- End Testimonial -->
             <div class="testimonial col-md-4 col-sm-6">
                 <div class="author-photo">
-                    <img src="img/user5.jpg" alt="Author 2">
+                    <img src="/bundles/app/img/user5.jpg" alt="Author 2">
                 </div>
                 <div class="testimonial-bubble">
                     <blockquote>
@@ -296,7 +296,7 @@
             </div>
             <div class="testimonial col-md-4 col-sm-6">
                 <div class="author-photo">
-                    <img src="img/user2.jpg" alt="Author 3">
+                    <img src="/bundles/app/img/user2.jpg" alt="Author 3">
                 </div>
                 <div class="testimonial-bubble">
                     <blockquote>
@@ -386,18 +386,18 @@
     <div class="container">
         <h2>Our Clients</h2>
         <div class="clients-logo-wrapper text-center row">
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/canon.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/cisco.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/dell.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ea.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ebay.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/facebook.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/google.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/hp.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/microsoft.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/mysql.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/sony.png" alt="Client Name"></a></div>
-            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/yahoo.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/canon.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/cisco.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/dell.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/ea.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/ebay.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/facebook.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/google.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/hp.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/microsoft.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/mysql.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/sony.png" alt="Client Name"></a></div>
+            <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="/bundles/app/img/logos/yahoo.png" alt="Client Name"></a></div>
         </div>
     </div>
 </div>
@@ -411,7 +411,7 @@
                 <h3>Our Latest Work</h3>
                 <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <a href="page-portfolio-item.html"><img src="img/portfolio6.jpg" alt="Project Name"></a>
+                        <a href="page-portfolio-item.html"><img src="/bundles/app/img/portfolio6.jpg" alt="Project Name"></a>
                     </div>
                 </div>
             </div>
