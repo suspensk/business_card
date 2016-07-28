@@ -9,7 +9,8 @@ class ORMWrappers extends \PHPixie\ORM\Wrappers\Implementation
 {
     protected $databaseEntities = array(
         'user',
-        'admin'
+        'admin'/*,
+        'page'*/
     );
 
     protected $databaseRepositories = array(
@@ -52,4 +53,9 @@ class ORMWrappers extends \PHPixie\ORM\Wrappers\Implementation
     {
         return new ORM\Admin\AdminRepository($repository);
     }
+
+    /*public function pageEntity($entity)
+    {
+        return new ORM\Page($entity);
+    }*/
 }

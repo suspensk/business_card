@@ -25,10 +25,10 @@ abstract class UserProtected extends Processor
     public function process($request)
     {
         $this->user = $this->loggedUser();
-
-        if($this->user === null) {
-            return $this->userLoginRedirect();
-        }
+// TODO SUSPENSK
+//        if($this->user === null) {
+//            return $this->userLoginRedirect();
+//        }
 
         return parent::process($request);
     }

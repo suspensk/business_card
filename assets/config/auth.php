@@ -25,7 +25,7 @@ return array(
                     'tokens' => array(
                         'storage' => array(
                             'type'            => 'database',
-                            'table'           => 'userTokens',
+                            'table'           => 'usertokens',
                             'defaultLifetime' => 3600*24*14 // two weeks
                         )
                     )

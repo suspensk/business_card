@@ -58,4 +58,16 @@ class HTTPProcessor extends \PHPixie\DefaultBundle\Processor\HTTP\Builder
     {
         return new HTTPProcessors\AdminProcessors($this->builder);
     }
+    protected function buildQuickstartProcessor()
+    {
+        return new HTTPProcessors\Quickstart(
+            $this->builder
+        );
+    }
+    protected function buildCampaignsProcessor()
+    {
+        return new HTTPProcessors\Campaigns(
+            $this->builder
+        );
+    }
 }
