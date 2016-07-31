@@ -5,7 +5,7 @@ return array(
     'default' => array(
         'driver' => 'pdo',
         'connection' => 'mysql:host=localhost;dbname=suspensk',
-        'user'     => 'root',
-        'password' => '1'
+        'user'     => 'suspensk_mysql',
+        'password' => '8UDvYJ_O'
     )
 );
