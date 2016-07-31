@@ -3,3 +3,7 @@ vendor/
 composer.lock
 .idea/
 www/
+errordocs/
+logs/
+old/
+stat/
