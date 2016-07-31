@@ -40,6 +40,36 @@ return array(
                 )
             )
         ),*/
+        'about' => array(
+            'type'     => 'pattern',
+            'path'     => 'about',
+            'defaults' => array(
+                'processor' => 'pages',
+                'action'    => 'about'
+            )
+        ),
+        'page' => array(
+            'type'     => 'pattern',
+
+            //Since the id parameter is mandatory
+            //we don't wrap it in brackets
+            'path'     => 'page/view/<id>',
+            'defaults' => array(
+                'processor' => 'pages',
+                'action'    => 'view'
+            )
+        ),
+        'page' => array(
+            'type'     => 'pattern',
+
+            //Since the id parameter is mandatory
+            //we don't wrap it in brackets
+            'path'     => 'page/view/<id>',
+            'defaults' => array(
+                'processor' => 'pages',
+                'action'    => 'view'
+            )
+        ),
         'campaigns' => array(
             'type'     => 'pattern',
 

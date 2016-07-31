@@ -38,7 +38,7 @@ class HTTPProcessor extends \PHPixie\DefaultBundle\Processor\HTTP\Builder
      */
     protected function buildDashboardProcessor()
     {
-        return new HTTPProcessors\Dashboard($this->builder);
+        return new HTTPProcessors\Pages($this->builder);
     }
 
     /**
@@ -67,6 +67,13 @@ class HTTPProcessor extends \PHPixie\DefaultBundle\Processor\HTTP\Builder
     protected function buildCampaignsProcessor()
     {
         return new HTTPProcessors\Campaigns(
+            $this->builder
+        );
+    }
+
+    protected function buildPagesProcessor()
+    {
+        return new HTTPProcessors\Pages(
             $this->builder
         );
     }

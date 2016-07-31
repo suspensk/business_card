@@ -16,7 +16,7 @@ class Dashboard extends UserProtected
      */
     public function defaultAction(Request $request)
     {
-        return $this->components->template()->get('app:user/dashboard', array(
+        return $this->components->template()->get('app:hp', array(
             'user' => $this->user
         ));
     }
