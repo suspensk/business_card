@@ -21,7 +21,7 @@
         </div>
         <nav id="mainmenu" class="mainmenu">
             <ul>
-                <li class="logo-wrapper"><a href="index.html"><img src="/bundles/app/img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+                <li class="logo-wrapper"><a href="/"><img src="/bundles/app/img/logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
                 <li class="active">
                     <a href="index.html">Home</a>
                 </li>
