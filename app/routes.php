@@ -27,3 +27,37 @@ $app->group('', function(){
     $this->post('/auth/password/change','PasswordController:postChangePassword');
 })->add(new AuthMiddleware($container));
 
+/**/
+
+
+$app->get('/{controller}/{action}', function ($request, $response, $args) use ($app)  {
+  //  echo $args['controller'];
+ //   var_dump($request->getParams());
+    var_dump($args);
+
+});
+
+//$app->get('/:controller(/:action)/', function ($controller, $action = null) use ($app) {
+//
+//    var_dump($controller);
+//    die();
+//    $query = (object)$app->request->params();
+//
+//    $controller = ucfirst($controller) . 'Controller';
+//
+//    if (!class_exists($controller)) {
+//        throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+//    }
+//    $controller = new $controller($query, $user, $detect, $logger);
+//    if (!method_exists($controller, $action)) {
+//        $action = 'index';
+//        // throw new InvalidArgumentException("The method '$action' of '$controller' don't exists.");
+//    }
+//    $controller->{$action}();
+
+
+//});
+
+//$app->notFound(function () use ($app) {
+//    var_dump($app->request);
+//});
