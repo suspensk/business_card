@@ -7,38 +7,38 @@ class Controller{
     /**
      * @var \Interop\Container\ContainerInterface
      */
-  //  protected $container;
+    private $container;
 
     /**
      * @var \App\Auth\Auth
      */
- //   public $auth;
+    private $auth;
     /**
      * @var \Slim\Flash\Messages
      */
- //   public $flash;
+    private $flash;
     /**
      * @var \Slim\Views\Twig
      */
-  //  public $view;
+    private $view;
 
     /**
      * @var \App\Validation\Validator
      */
-  //  public $validator;
+    private $validator;
     /**
      * @var \Slim\Csrf\Guard
      */
-  //  public $csrf;
+    private $csrf;
 
     public  function  __construct($container){
         $this->container = $container;
     }
-    public function index($request, $response){
-        //   var_dump($request->getParam('name'));
-        return $this->view->render($response, 'home.twig');
-        //  return 'Home controller';
-    }
+//    public function index($request, $response){
+//        //   var_dump($request->getParam('name'));
+//        return $this->view->render($response, 'home.twig');
+//        //  return 'Home controller';
+//    }
 
     public function __get($property){
         if($this->container->{$property}){
