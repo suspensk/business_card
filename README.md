@@ -1,53 +1,26 @@
-# Auth Project
+# Slim Framework 3 Skeleton Application
 
-This is a PHPixie project with some advanced user authentication already setup.
-It serves as a faster starting point making rolling out your own authorization easier.
+Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
 
-![Project Demo](http://i.imgur.com/WznceCf.gif)
+This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
 
-There are two separate authentication domains: users and admins, stored in different
-tables and entirely separated. This means you can login as a user and an admin at the same time.
-In fact admins can impersonate any user with a press of the button on their dashboard.
+## Install the Application
 
-To run, first install the project:
+Run this command from the directory in which you want to install your new Slim Framework application.
 
-```
-composer create-project phpixie/project-auth project
-```
+    php composer.phar create-project slim/slim-skeleton [my-app-name]
 
-Then point your web server to the `web/` folder. That's it, now just visit the site and you'll
-be greeted with a login/signup page. To try out the admin flow visit `/admin/` and login as `phpixie`
-with password `framework`. You can also add your own admins by calling the `addAdmin.php` script
-from console:
+Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
 
-```
-php addAdmin.php someUser somePassword
-```
+* Point your virtual host document root to your new application's `public/` directory.
+* Ensure `logs/` is web writeable.
 
+To run the application in development, you can also run this command. 
 
-The project uses an SQLite database contained in `database.sqlite`. To recreate the same database in MySQL:
+	php composer.phar start
 
-```
-CREATE TABLE `users` (
-    `id` INTEGER AUTO_INCREMENT PRIMARY KEY,
-    `email` VARCHAR(255) NOT NULL UNIQUE ,
-    `passwordHash` VARCHAR(255) NOT NULL
-);
+Run this command to run the test suite
 
-CREATE TABLE `userTokens` (
-  `series` varchar(50) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
-  `challenge` varchar(50) DEFAULT NULL,
-  `expires` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`series`)
-);
+	php composer.phar test
 
-CREATE TABLE `admins` (
-    `id` INTEGER AUTO_INCREMENT PRIMARY KEY,
-    `username` VARCHAR(255) NOT NULL UNIQUE ,
-    `passwordHash` VARCHAR(255) NOT NULL
-);
-```
-
-Remember to modify the `assets/config/database.php` file with the new settings.
-
+That's it! Now go build something cool.
