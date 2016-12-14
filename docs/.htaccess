@@ -1,11 +1,21 @@
 RewriteEngine On
-
+AddDefaultCharset UTF-8
+Options -Indexes
 # Some hosts may require you to use the `RewriteBase` directive.
 # If you need to use the `RewriteBase` directive, it should be the
 # absolute physical path to the directory that contains this htaccess file.
 #
 # RewriteBase /
 
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^admin admin.php
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
+
+#AuthName "Log in?"
+#AuthType Basic
+#AuthUserFile .htpasswd
+#require valid-user
