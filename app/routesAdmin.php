@@ -13,25 +13,32 @@ $app->group('', function(){
     $this->post('/admin/auth/signin','AuthController:postSignIn');
 })->add(new GuestMiddleware($container));
 
-$app->group('', function(){
+$app->group('', function() use($container){
 
     $this->get('/admin/','HomeController:index')->setName('home');
     $this->get('/admin/auth/signout','AuthController:getSignOut')->setName('auth.signout');
     $this->get('/admin/auth/password/change','PasswordController:getChangePassword')->setName('auth.password.change');
     $this->post('/admin/auth/password/change','PasswordController:postChangePassword');
 
-    $this->get('/admin/{controller}/{action}', function ($request, $response, $args) {
+    $this->get('/admin/{controller}/{action}', function ($request, $response, $args) use ($container) {
     //    $query = (object)$request->params();
-        $controller = ucfirst($args['controller']);
+        $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
+        $action = $args['action'];
 //        var_dump($args);
 //        die();
 
-//	if (!class_exists('\App\Controllers\Admin\\' . $controller . 'Controller')) {
-//        echo $controller;
-//      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
-//    } else{
-//        echo 'YES';
-//    }
+	if (!class_exists($controller)) {
+        echo 'no Controller';
+      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+    } else{
+      //  var_dump($request->getParams());
+        	$controller = new $controller($container);
+
+	    if (!method_exists($controller, $args['action'])) {
+            $action = 'index';
+        }
+	    $controller->{$action}($request, $response);
+    }
 //	$controller = new $controller($query, $user);
 //	$controller = new $controller($query, $user, $detect, $logger);
 //	if (!method_exists($controller, $action)) {
