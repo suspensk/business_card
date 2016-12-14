@@ -33,23 +33,6 @@ $container['db'] = function ($container) use ($capsule){
     return $capsule;
 };
 
-/* mysqli */
-//
-//$mysqli = new mysqli("localhost", "root", "1", "slim");
-//if (mysqli_connect_errno()) {
-//    printf("Connect failed: %s\n", mysqli_connect_error());
-//    exit();
-//}
-//$mysqli->set_charset("utf8");
-//$result = $mysqli->query("SELECT email FROM users where id=1");
-//if($result) {
-//    while ($row = $result->fetch_object()) {
-//        echo $row->email;
-//    }
-//}
-//$mysqli->close();
-/**/
-
 $container['startTime'] = function ($container){
     return $container['settings']['startTime'];
 };
@@ -63,7 +46,7 @@ $container['flash']= function ($container){
 };
 
 $container['view'] = function($container){
-    $view = new \Slim\Views\Twig(__DIR__ . '/../resources/views/site',[
+    $view = new \Slim\Views\Twig(__DIR__ . '/../resources/views/admin',[
         'cache' => false // on production = true
     ]);
     $view -> addExtension(new \Slim\Views\TwigExtension(
@@ -82,17 +65,17 @@ $container['view'] = function($container){
 
 
 $container['validator'] = function($container){
-  return new App\Validation\Validator;
+    return new App\Validation\Validator;
 };
 
 $container['HomeController'] = function($container){
-   return new \App\Controllers\Site\HomeController($container);
+    return new \App\Controllers\Admin\HomeController($container);
 };
 $container['AuthController'] = function($container){
-    return new \App\Controllers\Site\Auth\AuthController($container);
+    return new \App\Controllers\Admin\Auth\AuthController($container);
 };
 $container['PasswordController'] = function($container){
-    return new \App\Controllers\Site\Auth\PasswordController($container);
+    return new \App\Controllers\Admin\Auth\PasswordController($container);
 };
 
 $container['csrf'] = function($container){
@@ -100,10 +83,10 @@ $container['csrf'] = function($container){
 };
 
 
-$app->add(new App\Middleware\Site\ValidationErrorsMiddleware($container));
-$app->add(new App\Middleware\Site\OldInputMiddleware($container));
-$app->add(new App\Middleware\Site\CsrfViewMiddleware($container));
+$app->add(new App\Middleware\Admin\ValidationErrorsMiddleware($container));
+$app->add(new App\Middleware\Admin\OldInputMiddleware($container));
+$app->add(new App\Middleware\Admin\CsrfViewMiddleware($container));
 $app->add($container->csrf);
 
 v::with('App\\Validation\\Rules');
-require __DIR__ . '/../app/routes.php';
+require __DIR__ . '/../app/routesAdmin.php';
