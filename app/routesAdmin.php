@@ -5,7 +5,13 @@ use App\Middleware\Admin\GuestMiddleware;
 //    return $this->view->render($response, 'home.twig');
 //});
 
+$app->group('', function(){
+    $this->get('/admin/auth/signup','AuthController:getSignUp')->setName('auth.signup');
+    $this->post('/admin/auth/signup','AuthController:postSignUp');
 
+    $this->get('/admin/auth/signin','AuthController:getSignIn')->setName('auth.signin');
+    $this->post('/admin/auth/signin','AuthController:postSignIn');
+})->add(new GuestMiddleware($container));
 
 $app->group('', function(){
 
@@ -20,12 +26,12 @@ $app->group('', function(){
 //        var_dump($args);
 //        die();
 
-	if (!class_exists('\App\Controllers\Admin\\' . $controller . 'Controller')) {
-        echo $controller;
-      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
-    } else{
-        echo 'YES';
-    }
+//	if (!class_exists('\App\Controllers\Admin\\' . $controller . 'Controller')) {
+//        echo $controller;
+//      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+//    } else{
+//        echo 'YES';
+//    }
 //	$controller = new $controller($query, $user);
 //	$controller = new $controller($query, $user, $detect, $logger);
 //	if (!method_exists($controller, $action)) {
@@ -52,13 +58,7 @@ $app->group('', function(){
 
 
 
-//$app->group('', function(){
-//    $this->get('/admin/auth/signup','AuthController:getSignUp')->setName('auth.signup');
-//    $this->post('/admin/auth/signup','AuthController:postSignUp');
-//
-//    $this->get('/admin/auth/signin','AuthController:getSignIn')->setName('auth.signin');
-//    $this->post('/admin/auth/signin','AuthController:postSignIn');
-//})->add(new GuestMiddleware($container));
+
 
 
 /**/
