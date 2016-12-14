@@ -15,14 +15,17 @@ $app->group('', function(){
     $this->post('/admin/auth/password/change','PasswordController:postChangePassword');
 
     $this->get('/admin/{controller}/{action}', function ($request, $response, $args) {
-        $query = (object)$request->params();
+    //    $query = (object)$request->params();
+        $controller = ucfirst($args['controller']);
+//        var_dump($args);
+//        die();
 
-        var_dump($args);
-        die();
-
-//	if (!class_exists($controller)) {
-//        throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
-//    }
+	if (!class_exists('\App\Controllers\Admin\\' . $controller . 'Controller')) {
+        echo $controller;
+      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+    } else{
+        echo 'YES';
+    }
 //	$controller = new $controller($query, $user);
 //	$controller = new $controller($query, $user, $detect, $logger);
 //	if (!method_exists($controller, $action)) {
