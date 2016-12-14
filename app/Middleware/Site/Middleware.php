@@ -1,8 +1,8 @@
 <?php
-namespace App\Middleware;
+namespace App\Middleware\Site;
 class Middleware{
     /**
-     * @var \App\Controllers\Controller::container
+     * @var \App\Controllers\Site\Controller::container
      */
     protected $container;
 

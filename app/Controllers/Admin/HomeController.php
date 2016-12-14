@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 use Slim\Views\Twig as View;
  use \App\Models\User;
 class HomeController extends Controller{

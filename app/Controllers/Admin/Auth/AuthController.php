@@ -1,6 +1,6 @@
 <?php
-namespace App\Controllers\Auth;
-use App\Controllers\Controller;
+namespace App\Controllers\Admin\Auth;
+use App\Controllers\Site\Controller;
 use \App\Models\User;
 use Respect\Validation\Validator as v;
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Middleware;
+namespace App\Middleware\Admin;
 class OldInputMiddleware extends Middleware{
 
     public function __invoke($request, $response, $next){

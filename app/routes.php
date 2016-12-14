@@ -1,6 +1,6 @@
 <?php
-use App\Middleware\AuthMiddleware;
-use App\Middleware\GuestMiddleware;
+use App\Middleware\Site\AuthMiddleware;
+use App\Middleware\Site\GuestMiddleware;
 //$app->get('/home', function($request, $response){
 //    return $this->view->render($response, 'home.twig');
 //});
@@ -30,12 +30,12 @@ $app->group('', function(){
 /**/
 
 
-$app->get('/{controller}/{action}', function ($request, $response, $args) use ($app)  {
-  //  echo $args['controller'];
- //   var_dump($request->getParams());
-    var_dump($args);
-
-});
+//$app->get('/{controller}/{action}', function ($request, $response, $args) use ($app)  {
+//  //  echo $args['controller'];
+// //   var_dump($request->getParams());
+//    var_dump($args);
+//
+//});
 
 //$app->get('/:controller(/:action)/', function ($controller, $action = null) use ($app) {
 //

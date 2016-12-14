@@ -1,5 +1,5 @@
 <?php
-namespace App\Middleware;
+namespace App\Middleware\Site;
 class CsrfViewMiddleware extends Middleware{
 
     public function __invoke($request, $response, $next){
