@@ -18,14 +18,14 @@
             <div class="col-xs-12">
                 <h2 class="page-header">
                     <i class="fa fa-globe"></i> {{ review.title }}
-                    <small class="pull-right">created: {{ review.created }}</small>
+                    <small class="pull-right">created: {{ review.created_at }}</small>
                 </h2>
             </div>
             <!-- /.col -->
         </div>
         <!-- Table row -->
         <div class="row">
-            <div class="col-xs-12 table-responsive">
+            <div class="col-xs-12">
                 <h4><strong>Category</strong></h4>
                 <div>{{ review.category }}</div>
                 <h4><strong>Content</strong></h4>
@@ -35,9 +35,9 @@
                 <h4><strong>Published</strong></h4>
                 <div>{{ review.published }}</div>
                 <h4><strong>Created</strong></h4>
-                <div>{{ review.created }}</div>
+                <div>{{ review.created_at }}</div>
                 <h4><strong>Updated</strong></h4>
-                <div>{{ review.updated }}</div>
+                <div>{{ review.updated_at }}</div>
 
 
               {#

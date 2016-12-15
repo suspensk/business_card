@@ -41,9 +41,9 @@
                     <td> {{ review.category }}  </td>
                     <td> {{ review.source }}  </td>
                     <td> {{ review.published }}  </td>
-                    <td> {{ review.created }}  </td>
-                    <td> {{ review.updated }}  </td>
-                    <td> <button class="btn btn-info btn-sm" type="submit">Edit</button> </td>
+                    <td> {{ review.created_at }}  </td>
+                    <td> {{ review.updated_at }}  </td>
+                    <td> <a href="reviews/edit?id={{ review.id }}" class="btn btn-info btn-sm" type="submit">Edit</a> </td>
                 </tr>
                 {% endfor %}
                 </tbody>

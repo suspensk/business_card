@@ -9,10 +9,14 @@ Class Review extends Model{
         'name',
         'password'
     ];
-
-    public function setPassword($password){
-        $this->update([
-            'password' => password_hash($password, PASSWORD_DEFAULT)
-        ]);
+//    public $timestamps = false; TO DISABLE updated_at created_at
+    public static function setData($data){
+        $book = self::find($data['id']);
+        $book-> title = $data['title'];
+        $book-> content = $data['content'];
+        $book->save();
+//        $this->update([
+//            'password' => password_hash($password, PASSWORD_DEFAULT)
+//        ]);
     }
 }

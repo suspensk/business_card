@@ -2,7 +2,11 @@
 namespace App\Auth;
 use App\Models\User;
 class Auth{
-
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @returns User
+     */
     public function user(){
         if(isset($_SESSION['user'])){
             return User::find($_SESSION['user']);

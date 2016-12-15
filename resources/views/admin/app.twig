@@ -193,6 +193,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        {% include 'partials/flash.twig' %}
         <!-- Content Header (Page header) -->
         {% block content %} {% endblock %}
     </div>
@@ -415,5 +416,14 @@
 <script src="/assets/admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/assets/admin/dist/js/demo.js"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({
+        selector:'textarea',
+           plugins: 'code,image imagetools,wordcount',
+            browser_spellcheck : true,
+            contextmenu: false
+       /* toolbar: "code",*/
+//        menubar: "tools"
+        });</script>
 </body>
 </html>
