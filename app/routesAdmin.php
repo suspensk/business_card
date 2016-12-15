@@ -25,13 +25,14 @@ $app->group('', function() use($container){
         $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
         $action = $args['action'];
 //        var_dump($args);
-//        die();
+       //   var_dump($request->getParams());
+      //  die();
 
 	if (!class_exists($controller)) {
         echo 'no Controller';
       //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
     } else{
-      //  var_dump($request->getParams());
+
         	$controller = new $controller($container);
 
 	    if (!method_exists($controller, $args['action'])) {
@@ -50,9 +51,33 @@ $app->group('', function() use($container){
 
     });
 
-    $this->get('/admin/{controller}', function ($request, $response, $args) {
-        var_dump($args);
-        die();
+    $this->get('/admin/{controller}', function ($request, $response, $args) use ($container) {
+        //    $query = (object)$request->params();
+        $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
+    //    $action = $args['action'];
+//        var_dump($args);
+//        die();
+
+        if (!class_exists($controller)) {
+            echo 'no Controller';
+            //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+        } else{
+            //  var_dump($request->getParams());
+            $controller = new $controller($container);
+
+        //    if (!method_exists($controller, $args['action'])) {
+                $action = 'index';
+        //    }
+            $controller->{$action}($request, $response);
+        }
+//	$controller = new $controller($query, $user);
+//	$controller = new $controller($query, $user, $detect, $logger);
+//	if (!method_exists($controller, $action)) {
+//        throw new InvalidArgumentException("The method '$action' of '$controller' don't exists.");
+//        $action = 'index';
+//        // throw new InvalidArgumentException("The method '$action' of '$controller' don't exists.");
+//    }
+//	$controller->{$action}();
 
     });
 
