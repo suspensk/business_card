@@ -2,13 +2,13 @@
 {% block content  %}
     <section class="content-header">
         <h1>
-            Review
-            <small>#{{ review.id }}</small>
+            Review &nbsp; &nbsp;
+            <button class="btn btn-info btn" type="button"><span class="glyphicon glyphicon-edit"> Edit</span></button>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Examples</a></li>
-            <li class="active">Invoice</li>
+            <li><a href="/admin/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/admin/reviews">Reviews</a></li>
+            <li class="active">Review</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -29,7 +29,7 @@
                 <h4><strong>Category</strong></h4>
                 <div>{{ review.category }}</div>
                 <h4><strong>Content</strong></h4>
-                <div>{{ review.content }}</div>
+                <div>{{ review.content|raw  }}</div>
                 <h4><strong>Source</strong></h4>
                 <div>{{ review.source }}</div>
                 <h4><strong>Published</strong></h4>
@@ -38,7 +38,6 @@
                 <div>{{ review.created_at }}</div>
                 <h4><strong>Updated</strong></h4>
                 <div>{{ review.updated_at }}</div>
-
 
               {#
                    <table class="table table-striped"><thead>

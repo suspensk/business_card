@@ -11,10 +11,21 @@ Class Review extends Model{
     ];
 //    public $timestamps = false; TO DISABLE updated_at created_at
     public static function setData($data){
-        $book = self::find($data['id']);
-        $book-> title = $data['title'];
-        $book-> content = $data['content'];
-        $book->save();
+        $review = self::find($data['id']);
+        $review-> title = $data['title'];
+        $review-> content = $data['content'];
+        $review->save();
+//        $this->update([
+//            'password' => password_hash($password, PASSWORD_DEFAULT)
+//        ]);
+    }
+
+    public static function addNew($data){
+        $review = new Review();
+        $review-> title = $data['title'];
+        $review-> content = $data['content'];
+        $review->save();
+        return $review->id;
 //        $this->update([
 //            'password' => password_hash($password, PASSWORD_DEFAULT)
 //        ]);

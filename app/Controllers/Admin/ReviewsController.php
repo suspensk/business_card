@@ -32,12 +32,24 @@ class ReviewsController extends Controller{
         }
     }
 
+    public function add($request, $response){
+        $params = $request->getParams();
+         $review= null;
+         $this->view->getEnvironment()->addGlobal('review', $review);
+         return $this->view->render($response, 'edit/review.twig');
+
+    }
+
     public function postEdit($request, $response){
         $params = $request->getParams();
         if(!empty($params['id'])){
             Review::setData($params);
             $this->flash->addMessage('success', 'Changes saved successfully!');
             return $response->withRedirect('view?id=' . $params['id']);
+        } else{
+            $newId = Review::addNew($params);
+            $this->flash->addMessage('success', 'Record added successfully!');
+            return $response->withRedirect('view?id=' . $newId);
         }
         var_dump($params);
         die();
