@@ -36,15 +36,16 @@ Class Review extends Model{
                         $image->save('image2.jpg');
                     *
                      */
-                    $image = new \Eventviva\ImageResize($filePath);
-                    $image->scale(50);
-                    $image->save($filePath);
+                    /* TODO */
+//                    $image = new \Eventviva\ImageResize($filePath);
+//                    $image->scale(50);
+//                    $image->save($filePath);
                 } catch (Exception $e){
                     return array('result' => 1, 'error' => 'Error resizing image: ' . $e->getMessage());
                 }
-
-
-
+                if(file_exists($review->picture)){
+                    unlink($review->picture);
+                }
                 $review-> picture = $filePath;
             } else{
                 return array('result' => 1, 'error' => 'Error file uploading');
