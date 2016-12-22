@@ -10,6 +10,12 @@ $app = new \Slim\App([
         'displayErrorDetails' => true,
         'db' => [
             'driver' => 'mysql',
+            /*
+             'host' => 'localhost',
+            'database' => 'slim',
+            'username' => 'root',
+            'password' => '1',
+            */
             'host' => 'suspensk.mysql',
             'database' => 'suspensk_db',
             'username' => 'suspensk_mysql',
@@ -18,7 +24,14 @@ $app = new \Slim\App([
             'collation' => 'utf8_unicode_ci',
             'prefix' => ''
         ],
-        'startTime' => microtime(true)
+        'startTime' => microtime(true),
+        'upload_path' => 'uploads/',
+        'max_upload_size' => 3145728, // in bytes = 3MB
+        'picture_types' => array(
+            'jpg' => 'image/jpeg',
+            'png' => 'image/png',
+            'gif' => 'image/gif',
+        )
     ]
 ]);
 $container = $app->getContainer();
