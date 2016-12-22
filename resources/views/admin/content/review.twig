@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
             Review &nbsp; &nbsp;
-            <button class="btn btn-info btn" type="button"><span class="glyphicon glyphicon-edit"> Edit</span></button>
+            <a href="/admin/reviews/edit?id={{ review.id }}" class="btn btn-info btn" type="button"><span class="glyphicon glyphicon-edit"> Edit</span></a>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/admin/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -38,6 +38,13 @@
                 <div>{{ review.created_at }}</div>
                 <h4><strong>Updated</strong></h4>
                 <div>{{ review.updated_at }}</div>
+                <h4><strong>Attachments</strong></h4>
+                {% for  attachment in review.attachments %}
+                    <div><a target="_blank" href="{{ attachment.link }}">{{ attachment.title }}</a></div>
+                {% endfor %}
+
+
+
 
               {#
                    <table class="table table-striped"><thead>

@@ -43,9 +43,15 @@ class ReviewsController extends Controller{
     public function postEdit($request, $response){
         $params = $request->getParams();
         if(!empty($params['id'])){
-            Review::setData($params);
-            $this->flash->addMessage('success', 'Changes saved successfully!');
-            return $response->withRedirect('view?id=' . $params['id']);
+            $result = Review::setData($params, $request->getUploadedFiles(), $this->settings);
+            if(!$result){
+                $this->flash->addMessage('success', 'Changes saved successfully!');
+                return $response->withRedirect('view?id=' . $params['id']);
+            } else{
+                $this->flash->addMessage('error', $result['error']);
+                return $response->withRedirect('edit?id=' . $params['id']);
+            }
+
         } else{
             $newId = Review::addNew($params);
             $this->flash->addMessage('success', 'Record added successfully!');

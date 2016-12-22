@@ -26,11 +26,15 @@
         <!-- Table row -->
         <div class="row">
             <div class="col-xs-12">
-                <form action="edit" method="post" autocomplete="on">
+                <form action="edit" method="post" autocomplete="on" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="{{ review.id }}">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Title</label>
                         <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ review.title }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Picture</label>
+                        <input type="file" class="form-control-file" name="picture" placeholder="file" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="exampleSelect1">Category</label>
