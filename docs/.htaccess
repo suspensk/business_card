@@ -17,5 +17,5 @@ RewriteRule ^ index.php [QSA,L]
 
 #AuthName "Log in?"
 #AuthType Basic
-#AuthUserFile .htpasswd
+#AuthUserFile /home/suspensk/suspensk.xyz/docs/.htpasswd
 #require valid-user

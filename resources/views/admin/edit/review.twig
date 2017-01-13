@@ -1,0 +1,134 @@
+{% extends 'app.twig' %}
+{% block content  %}
+    <section class="content-header">
+        <h1>
+            Review
+            <small>#{{ review.id }}</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Examples</a></li>
+            <li class="active">Invoice</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="invoice">
+        <!-- title row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    <i class="fa fa-globe"></i> {{ review.title }}
+                    <small class="pull-right">created: {{ review.created_at }}</small>
+                </h2>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- Table row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="edit" method="post" autocomplete="on" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="{{ review.id }}">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ review.title }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Picture</label>
+                        <input type="file" class="form-control-file" name="picture" placeholder="file" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1">Category</label>
+                        <select class="form-control" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Content</label>
+                        <textarea name="content" class="form-control" id="exampleTextarea" rows="3">{{ review.content }}</textarea>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Published
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1">Attachments</label>
+                        <table class="table table-striped">
+
+                        {% for  attachment in review.attachments %}
+                            <tr><td width="30%">
+                            <a target="_blank" href="{{ attachment.link }}">{{ attachment.title }}</a></td><td><span role="button" class="glyphicon glyphicon-remove remove-attachment"></span></td></tr>
+
+                        {% endfor %}
+
+                            </table>
+                        <div id="attach">
+                            <input type="file" name="attachment[]"/>
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    {{ csrf.field | raw }}
+                </form>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <div id="dialog-confirm" title="Empty the recycle bin?">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+
+    <p>Sed vel diam id libero <a href="http://example.com">rutrum convallis</a>. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.</p>
+
+{% endblock %}
+{% block script  %}
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            plugins: 'code,image imagetools,wordcount',
+            browser_spellcheck : true,
+            contextmenu: false
+            /* toolbar: "code",*/
+//        menubar: "tools"
+        });
+
+        $("#attach").on("change", " input[type=file]:last", function(){
+            var item = $(this).clone(true);
+            item.val('');
+            var fileName = $(this).val();
+            if(fileName){
+                $(this).parent().append("<br/>").append(item);
+            }
+        });
+
+        $(".remove-attachment").on("click", function(){
+           console.log($(this));
+        });
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            buttons : {
+                "Confirm" : function() {
+                    alert("You have confirmed!");
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#callConfirm").on("click", function(e) {
+            e.preventDefault();
+            $("#dialog").dialog("open");
+        });
+    </script>
+{% endblock %}
+

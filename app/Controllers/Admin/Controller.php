@@ -21,6 +21,10 @@ class Controller{
      * @var \Slim\Views\Twig
      */
     private $view;
+    /**
+     * @var array
+     */
+    private $settings;
 
     /**
      * @var \App\Validation\Validator

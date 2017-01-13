@@ -20,25 +20,59 @@ $app->group('', function() use($container){
     $this->get('/admin/auth/password/change','PasswordController:getChangePassword')->setName('auth.password.change');
     $this->post('/admin/auth/password/change','PasswordController:postChangePassword');
 
+  //  $this->get('/admin/reviews/edit','App\Controllers\Admin\ReviewsController:edit');
+
     $this->get('/admin/{controller}/{action}', function ($request, $response, $args) use ($container) {
-    //    $query = (object)$request->params();
         $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
         $action = $args['action'];
+	    if (!class_exists($controller)) {
+            echo 'no Controller';
+          //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+        } else{
+        	$controller = new $controller($container);
+	        if (!method_exists($controller, $args['action'])) {
+                $action = 'index';
+            }
+	     return  $controller->{$action}($request, $response);
+        }
+    });
+
+    $this->post('/admin/{controller}/{action}', function ($request, $response, $args) use ($container) {
+        $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
+        $action = 'post' . ucfirst($args['action']);
+        if (!class_exists($controller)) {
+            echo 'no Controller';
+            exit();
+            //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+        } else{
+            $controller = new $controller($container);
+            if (!method_exists($controller, $args['action'])) {
+                echo 'no method';
+                exit();
+            }
+            return $controller->{$action}($request, $response);
+        }
+    });
+
+    $this->get('/admin/{controller}', function ($request, $response, $args) use ($container) {
+        //    $query = (object)$request->params();
+        $controller = '\App\Controllers\Admin\\' . ucfirst($args['controller']) . 'Controller' ;
+    //    $action = $args['action'];
 //        var_dump($args);
 //        die();
 
-	if (!class_exists($controller)) {
-        echo 'no Controller';
-      //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
-    } else{
-      //  var_dump($request->getParams());
-        	$controller = new $controller($container);
+        if (!class_exists($controller)) {
+            echo 'no Controller';
+            //  throw new InvalidArgumentException("The action controller '$controller' has not been defined.");
+        } else{
+            //  var_dump($request->getParams());
+            $controller = new $controller($container);
 
-	    if (!method_exists($controller, $args['action'])) {
-            $action = 'index';
+        //    if (!method_exists($controller, $args['action'])) {
+                $action = 'index';
+        //    }
+            $controller->{$action}($request, $response);
         }
-	    $controller->{$action}($request, $response);
-    }
 //	$controller = new $controller($query, $user);
 //	$controller = new $controller($query, $user, $detect, $logger);
 //	if (!method_exists($controller, $action)) {
@@ -47,12 +81,6 @@ $app->group('', function() use($container){
 //        // throw new InvalidArgumentException("The method '$action' of '$controller' don't exists.");
 //    }
 //	$controller->{$action}();
-
-    });
-
-    $this->get('/admin/{controller}', function ($request, $response, $args) {
-        var_dump($args);
-        die();
 
     });
 
