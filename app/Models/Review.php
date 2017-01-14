@@ -12,7 +12,8 @@ Class Review extends Model{
 
 
         $uploadedFile = $files['picture'];
-        if(!empty($uploadedFile)){
+
+        if(!empty($uploadedFile->file)){
             if(!in_array($uploadedFile->getClientMediaType(), $settings['picture_types'])){
                 return array('result' => 1, 'error' => 'Wrong file type');
             }
@@ -23,7 +24,7 @@ Class Review extends Model{
 
             if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
                 $uploadFileName = $uploadedFile->getClientFilename();
-                $filePath =  $settings['upload_path'] . time() . '_' . substr($uploadFileName, -50);
+                $filePath =  $settings['upload_path'] . time();
                 $uploadedFile->moveTo($filePath);
                 try{
                     /*
