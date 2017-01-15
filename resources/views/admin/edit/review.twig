@@ -112,18 +112,35 @@
         $(".remove-attachment").on("click", function(){
            console.log($(this));
         });
-        $("#dialog").dialog({
-            autoOpen: false,
-            modal: true,
-            buttons : {
-                "Confirm" : function() {
-                    alert("You have confirmed!");
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
+//        $("#dialog").dialog({
+//            autoOpen: false,
+//            modal: true,
+//            buttons : {
+//                "Confirm" : function() {
+//                    alert("You have confirmed!");
+//                },
+//                "Cancel" : function() {
+//                    $(this).dialog("close");
+//                }
+//            }
+//        });
+
+        $( function() {
+            $( "#dialog-confirm" ).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Delete all items": function() {
+                        $( this ).dialog( "close" );
+                    },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
                 }
-            }
-        });
+            });
+        } );
 
         $("#callConfirm").on("click", function(e) {
             e.preventDefault();
