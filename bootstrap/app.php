@@ -2,6 +2,7 @@
 use Respect\Validation\Validator as v;
 session_start();
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../docs/config.php';
 //$user = new \App\Models\User;
 //var_dump($user);
 //die();
@@ -9,14 +10,14 @@ $app = new \Slim\App([
     'settings' => [
         'displayErrorDetails' => true,
         'db' => [
-            'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'slim',
-            'username' => 'root',
-            'password' => '1',
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => ''
+            'driver' => DB_DRIVER,
+            'host' => DB_HOST,
+            'database' => DB_NAME,
+            'username' => DB_USER,
+            'password' => DB_PASSWORD,
+            'charset' => DB_CHARSET,
+            'collation' => DB_COLLATION,
+            'prefix' => DB_PREFIX
         ],
         'startTime' => microtime(true)
     ]
